@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Умардын тушоо тою</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5efe5;
+    color:#4b3024;
+    font-family:"Playfair Display",serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   ETHNO DECORATION
+========================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.08;
+    background-image:
+    repeating-linear-gradient(
+        45deg,
+        #6b432d 0,
+        #6b432d 1px,
+        transparent 1px,
+        transparent 12px
+    );
+    z-index:999;
+}
+
+/* =========================
+   OPEN SCREEN
+========================= */
+
+#opening{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:#f5efe5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity 1s ease, visibility 1s ease;
+}
+
+#opening.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.open-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.open-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to bottom,
+        rgba(55,32,20,.08),
+        rgba(55,32,20,.42)
+    );
+}
+
+.open-content{
+    position:absolute;
+    bottom:55px;
+    left:20px;
+    right:20px;
+    text-align:center;
+    color:white;
+}
+
+.open-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:42px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-shadow:0 3px 15px rgba(0,0,0,.35);
+}
+
+.open-sub{
+    margin-top:8px;
+    font-size:15px;
+    letter-spacing:2px;
+}
+
+.open-btn{
+    margin-top:25px;
+    border:1px solid rgba(255,255,255,.8);
+    background:rgba(255,255,255,.15);
+    color:white;
+    padding:14px 32px;
+    border-radius:40px;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
+    backdrop-filter:blur(8px);
+}
+
+/* scissors */
+
+.scissors{
+    position:absolute;
+    font-size:48px;
+    left:-80px;
+    top:63%;
+    transform:rotate(-20deg);
+    opacity:0;
+    z-index:5;
+}
+
+.cut-animation .scissors{
+    animation:cut 1.5s ease forwards;
+}
+
+@keyframes cut{
+    0%{
+        left:-80px;
+        opacity:0;
+    }
+    15%{opacity:1;}
+    70%{
+        left:48%;
+        opacity:1;
+    }
+    100%{
+        left:110%;
+        opacity:0;
+    }
+}
+
+.rope{
+    position:absolute;
+    width:75%;
+    height:7px;
+    background:#39251c;
+    border-radius:20px;
+    left:12%;
+    top:67%;
+    z-index:3;
+}
+
+.cut-animation .rope{
+    animation:ropeCut .8s ease 1s forwards;
+}
+
+@keyframes ropeCut{
+    0%{transform:scaleX(1);}
+    100%{transform:scaleX(0);}
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+    max-width:720px;
+    margin:auto;
+    background:#f8f3ea;
+    min-height:100vh;
+}
+
+.section{
+    padding:65px 24px;
+    text-align:center;
+    position:relative;
+}
+
+.ethno-line{
+    width:90px;
+    height:1px;
+    background:#8a6048;
+    margin:20px auto;
+}
+
+.small-title{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#765443;
+}
+
+.big-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:54px;
+    line-height:.95;
+    font-weight:600;
+    color:#4a2f24;
+}
+
+.text{
+    font-size:16px;
+    line-height:1.8;
+    color:#60473a;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero img{
+    width:100%;
+    display:block;
+}
+
+.hero-text{
+    padding:45px 25px 55px;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:49px;
+    line-height:1;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:16px;
+    line-height:1.8;
+}
+
+/* =========================
+   DATE
+========================= */
+
+.date-card{
+    background:#eee3d2;
+    border:1px solid #d5c0a5;
+    padding:30px 18px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(75,48,36,.08);
+}
+
+.date-month{
+    font-family:"Cormorant Garamond",serif;
+    font-size:29px;
+    margin-bottom:20px;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    max-width:390px;
+    margin:auto;
+}
+
+.calendar div{
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+}
+
+.week{
+    font-weight:bold;
+    color:#8a6048;
+}
+
+.day.active{
+    position:relative;
+    font-weight:bold;
+    color:white;
+    z-index:1;
+}
+
+.day.active:before{
+    content:"♥";
+    position:absolute;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:#8b5d43;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    z-index:-1;
+    font-size:19px;
+}
+
+.time{
+    margin-top:25px;
+    font-family:"Cormorant Garamond",serif;
+    font-size:25px;
+}
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo{
+    width:100%;
+    display:block;
+}
+
+.photo-card{
+    margin-top:25px;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(70,40,25,.12);
+}
+
+/* =========================
+   PEOPLE
+========================= */
+
+.people-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:22px;
+    color:#85614b;
+    margin-bottom:8px;
+}
+
+.people-name{
+    font-family:"Cormorant Garamond",serif;
+    font-size:43px;
+    color:#4a3025;
+    margin-bottom:30px;
+}
+
+/* =========================
+   ADDRESS
+========================= */
+
+.address-box{
+    background:#e9decd;
+    border-radius:25px;
+    padding:35px 20px;
+    border:1px solid #d1bda3;
+}
+
+.address-icon{
+    font-size:35px;
+}
+
+.address-name{
+    font-family:"Cormorant Garamond",serif;
+    font-size:29px;
+    margin:10px 0;
+}
+
+.map-btn{
+    display:inline-block;
+    margin-top:22px;
+    padding:13px 25px;
+    border:1px solid #79523d;
+    border-radius:30px;
+    color:#60402f;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp{
+    background:#eee4d5;
+}
+
+.rsvp-question{
+    font-family:"Cormorant Garamond",serif;
+    font-size:36px;
+    line-height:1.15;
+    margin-bottom:28px;
+}
+
+.rsvp-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-width:350px;
+    margin:auto;
+}
+
+.rsvp-btn{
+    border:none;
+    padding:16px;
+    border-radius:40px;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.yes{
+    background:#7b523c;
+    color:white;
+}
+
+.no{
+    background:#d8c7b1;
+    color:#503426;
+}
+
+.rsvp-btn:active{
+    transform:scale(.97);
+}
+
+.form-box{
+    display:none;
+    margin:25px auto 0;
+    max-width:350px;
+    animation:fadeUp .6s ease;
+}
+
+.form-box.show{
+    display:block;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.form-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-bottom:1px solid #87624c;
+    background:transparent;
+    outline:none;
+    text-align:center;
+    font-family:inherit;
+    font-size:16px;
+}
+
+.send-btn{
+    margin-top:18px;
+    background:#7b523c;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.response{
+    display:none;
+    margin-top:25px;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.response.show{
+    display:block;
+}
+
+/* =========================
+   GUEST LIST
+========================= */
+
+.guests{
+    display:none;
+    margin-top:35px;
+    padding-top:25px;
+    border-top:1px solid #cdb9a0;
+}
+
+.guests h3{
+    font-family:"Cormorant Garamond",serif;
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.guest{
+    padding:7px;
+    font-size:15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.footer-heart{
+    font-size:30px;
+}
+
+.footer-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:37px;
+    margin-top:10px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+#music-player{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:9999;
+}
+
+#musicBtn{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    border:1px solid #b89d82;
+    background:rgba(248,243,234,.95);
+    box-shadow:0 4px 20px rgba(0,0,0,.18);
+    font-size:21px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<div id="opening">
+
+    <img src="1.jpg" class="open-photo">
+
+    <div class="open-overlay"></div>
+
+    <div class="rope"></div>
+
+    <div class="scissors">✂️</div>
+
+    <div class="open-content">
+
+        <div class="open-title">
+            Умардын тушоо тою
+        </div>
+
+        <div class="open-sub">
+            АК ЖОЛ • АК БАТА • КУБАНЫЧ
+        </div>
+
+        <button class="open-btn" onclick="openInvitation()">
+            Чакырууны ачуу
+        </button>
+
+    </div>
+</div>
+
+
+<!-- =========================
+     MAIN SITE
+========================= -->
+
+<main id="site">
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <img src="1.jpg" alt="Умар">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                Чакырык
+            </div>
+
+            <div class="ethno-line"></div>
+
+            <h1>
+                Кичинекей<br>
+                Умарыбыздын<br>
+                тушоо тоюна
+            </h1>
+
+            <p>
+                Келип, ак баталарыңызды берип,
+                кубанычыбызга орток болуңуздар!
+            </p>
+
+            <br>
+
+            <p>
+                Умардын алгачкы кадамына ак жол тилеп,
+                тушоосун кесип, кубанычыбызга
+                орток болуңуздар! ❤️
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- DATE -->
+    <section class="section">
+
+        <div class="small-title">
+            Той күнү
+        </div>
+
+        <div class="ethno-line"></div>
+
+        <div class="date-card">
+
+            <div class="date-month">
+                ОКТЯБРЬ 2026
+            </div>
+
+            <div class="calendar">
+
+                <div class="week">Дш</div>
+                <div class="week">Шш</div>
+                <div class="week">Шр</div>
+                <div class="week">Бш</div>
+                <div class="week">Жм</div>
+                <div class="week">Иш</div>
+                <div class="week">Жк</div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+                <div>11</div>
+
+                <div>12</div>
+                <div>13</div>
+                <div>14</div>
+                <div>15</div>
+                <div>16</div>
+                <div>17</div>
+                <div>18</div>
+
+                <div>19</div>
+                <div>20</div>
+                <div>21</div>
+                <div>22</div>
+                <div>23</div>
+                <div>24</div>
+                <div>25</div>
+
+                <div>26</div>
+                <div>27</div>
+                <div>28</div>
+                <div>29</div>
+                <div>30</div>
+
+                <div class="day active">31</div>
+
+            </div>
+
+            <div class="time">
+                🕓 15:00
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GRANDPARENTS -->
+    <section class="section">
+
+        <div class="people-title">
+            Чоң ата, чоң апасы
+        </div>
+
+        <div class="ethno-line"></div>
+
+        <div class="photo-card">
+            <img src="2.jpg" class="photo">
+        </div>
+
+        <div style="margin-top:20px;">
+            <div class="people-name">
+                Манас, Динара
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PARENTS -->
+    <section class="section">
+
+        <div class="people-title">
+            Ата-энеси
+        </div>
+
+        <div class="ethno-line"></div>
+
+        <div class="photo-card">
+            <img src="3.jpg" class="photo">
+        </div>
+
+        <div style="margin-top:20px;">
+            <div class="people-name">
+                Максат, Каныкей
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ADDRESS -->
+    <section class="section">
+
+        <div class="small-title">
+            Дарек
+        </div>
+
+        <div class="ethno-line"></div>
+
+        <div class="address-box">
+
+            <div class="address-icon">📍</div>
+
+            <div class="address-name">
+                «Ак-Тилек» рестораны
+            </div>
+
+            <div class="text">
+                Кишиневская көчөсү, 4
+            </div>
+
+            <a
+              class="map-btn"
+              href="https://www.google.com/maps/search/?api=1&query=Ак-Тилек+ресторан+Кишиневская+4+Бишкек"
+              target="_blank">
+                Картадан көрүү →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAMILY PHOTO -->
+    <section class="section">
+
+        <div class="photo-card">
+            <img src="4.jpg" class="photo">
+        </div>
+
+    </section>
+
+
+    <!-- RSVP -->
+    <section class="section rsvp">
+
+        <div class="small-title">
+            Сиз үчүн
+        </div>
+
+        <div class="ethno-line"></div>
+
+        <div class="rsvp-question">
+            «Умардын тушоо тоюна
+            биз менен бирге болосузбу? 🤍»
+        </div>
+
+        <div class="rsvp-buttons">
+
+            <button
+                class="rsvp-btn yes"
+                onclick="showYesForm()">
+                🤍 Ооба, келем
+            </button>
+
+            <button
+                class="rsvp-btn no"
+                onclick="showNoAnswer()">
+                🤎 Жок, келе албайм
+            </button>
+
+        </div>
+
+
+        <!-- YES FORM -->
+
+        <div class="form-box" id="yesForm">
+
+            <p class="text">
+                Атыңызды жазыңыз:
+            </p>
+
+            <input
+                type="text"
+                id="guestName"
+                placeholder="Атыңыз"
+                autocomplete="name">
+
+            <button
+                class="send-btn"
+                onclick="sendGuest()">
+                Жооп жөнөтүү 🤍
+            </button>
+
+            <div class="response" id="yesResponse">
+                Рахмат! 🤍<br>
+                Сизди Умардын тушоо тоюнда
+                чыдамсыздык менен күтөбүз!
+            </div>
+
+        </div>
+
+
+        <!-- NO ANSWER -->
+
+        <div class="response" id="noResponse">
+
+            Жооп бергениңиз үчүн рахмат 🤍<br><br>
+
+            Умардын тушоо тоюнан алыста болсоңуз да,
+            жакшы тилегиңиз биз үчүн кымбат.
+
+        </div>
+
+
+        <!-- GUEST LIST -->
+
+        <div class="guests" id="guestList">
+
+            <h3>
+                Катышуучулар
+            </h3>
+
+            <div id="guestsContainer"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <section class="footer">
+
+        <div class="footer-heart">
+            🤍
+        </div>
+
+        <div class="footer-title">
+            Умардын тушоо тою
+        </div>
+
+        <div class="ethno-line"></div>
+
+        <p class="text">
+            Сиздерди күтөбүз!
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<div id="music-player">
+
+    <button
+        onclick="toggleMusic()"
+        id="musicBtn">
+        🔇
+    </button>
+
+</div>
+
+<iframe
+    id="youtubeMusic"
+    width="1"
+    height="1"
+    src="https://www.youtube.com/embed/1_r-p5-hG5U?autoplay=1&loop=1&playlist=1_r-p5-hG5U&controls=0&mute=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    style="
+        position:absolute;
+        opacity:0;
+        pointer-events:none;
+    ">
+</iframe>
+
+
+<script>
+
+/* =========================
+   OPEN INVITATION
+========================= */
+
+function openInvitation(){
+
+    const opening = document.getElementById("opening");
+
+    opening.classList.add("cut-animation");
+
+    setTimeout(() => {
+
+        opening.classList.add("hide");
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+        startMusic();
+
+    }, 1800);
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+let musicStarted = false;
+let musicOn = false;
+
+function startMusic(){
+
+    const iframe = document.getElementById("youtubeMusic");
+    const btn = document.getElementById("musicBtn");
+
+    iframe.src =
+        "https://www.youtube.com/embed/1_r-p5-hG5U?autoplay=1&loop=1&playlist=1_r-p5-hG5U&controls=0&mute=0";
+
+    musicStarted = true;
+    musicOn = true;
+
+    btn.innerHTML = "🔊";
+}
+
+function toggleMusic(){
+
+    const iframe = document.getElementById("youtubeMusic");
+    const btn = document.getElementById("musicBtn");
+
+    if(!musicStarted){
+
+        startMusic();
+        return;
+
+    }
+
+    if(musicOn){
+
+        iframe.src =
+            "https://www.youtube.com/embed/1_r-p5-hG5U?autoplay=0&loop=1&playlist=1_r-p5-hG5U&controls=0&mute=1";
+
+        musicOn = false;
+        btn.innerHTML = "🔇";
+
+    }else{
+
+        iframe.src =
+            "https://www.youtube.com/embed/1_r-p5-hG5U?autoplay=1&loop=1&playlist=1_r-p5-hG5U&controls=0&mute=0";
+
+        musicOn = true;
+        btn.innerHTML = "🔊";
+
+    }
+}
+
+
+/* =========================
+   YES
+========================= */
+
+function showYesForm(){
+
+    document.getElementById("noResponse").classList.remove("show");
+
+    document.getElementById("yesForm").classList.add("show");
+
+    setTimeout(() => {
+
+        document.getElementById("guestName").focus();
+
+    },300);
+}
+
+
+/* =========================
+   NO
+========================= */
+
+function showNoAnswer(){
+
+    document.getElementById("yesForm").classList.remove("show");
+
+    document.getElementById("noResponse").classList.add("show");
+
+}
+
+
+/* =========================
+   GUEST
+========================= */
+
+function sendGuest(){
+
+    const input = document.getElementById("guestName");
+
+    const name = input.value.trim();
+
+    if(!name){
+
+        alert("Сураныч, атыңызды жазыңыз 🤍");
+        return;
+
+    }
+
+    let guests =
+        JSON.parse(localStorage.getItem("umarGuests") || "[]");
+
+    guests.push(name);
+
+    localStorage.setItem(
+        "umarGuests",
+        JSON.stringify(guests)
+    );
+
+    document.getElementById("yesResponse")
+        .classList.add("show");
+
+    input.value = "";
+
+    showGuests();
+
+}
+
+
+/* =========================
+   SHOW GUESTS
+========================= */
+
+function showGuests(){
+
+    const guests =
+        JSON.parse(localStorage.getItem("umarGuests") || "[]");
+
+    const list =
+        document.getElementById("guestsContainer");
+
+    const box =
+        document.getElementById("guestList");
+
+    if(guests.length === 0){
+
+        box.style.display = "none";
+        return;
+
+    }
+
+    box.style.display = "block";
+
+    list.innerHTML = "";
+
+    guests.forEach((name,index) => {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "guest";
+
+        item.innerHTML =
+            "🤍 " + (index + 1) + ". " + name;
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+/* load saved names */
+
+showGuests();
+
+</script>
+
+</body>
+</html>
