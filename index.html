@@ -20,31 +20,48 @@
 }
 
 body{
-    background:#eee7dc;
-    color:#4b392d;
-    font-family:'Cormorant Garamond',serif;
-    line-height:1.5;
+    background:#e8dfd2;
+    color:#4d392b;
+    font-family:'Cormorant Garamond', serif;
 }
 
 .page{
     max-width:720px;
     margin:auto;
-    background:#f8f4ec;
+    background:#faf7f0;
     min-height:100vh;
-    overflow:hidden;
 }
 
-.section{
-    padding:65px 25px;
+/* GENERAL */
+
+section{
+    padding:65px 22px;
     text-align:center;
-    position:relative;
 }
 
 .decor{
+    color:#94745a;
     font-size:25px;
-    color:#8b6b50;
     margin-bottom:15px;
 }
+
+.main-title{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    color:#4b3427;
+    margin-bottom:20px;
+}
+
+.photo{
+    width:100%;
+    max-width:620px;
+    display:block;
+    margin:25px auto 0;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(65,45,30,.18);
+}
+
+/* INTRO */
 
 .intro{
     min-height:100vh;
@@ -52,137 +69,118 @@ body{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:25px;
+    padding:30px 22px;
 }
 
 .intro-photo{
-    width:210px;
+    width:220px;
     height:280px;
     object-fit:cover;
     border-radius:120px 120px 25px 25px;
-    box-shadow:0 15px 40px rgba(70,45,25,.18);
+    box-shadow:0 15px 40px rgba(65,45,30,.20);
     margin-bottom:30px;
 }
 
-.small-title{
-    font-size:19px;
+.intro-small{
+    font-size:18px;
     letter-spacing:3px;
-    text-transform:uppercase;
-    color:#80644c;
+    color:#85664e;
 }
 
-.main-title{
+.intro-title{
     font-family:'Playfair Display',serif;
-    font-size:42px;
-    color:#4a3528;
-    margin:10px 0 18px;
+    font-size:40px;
+    color:#50392b;
+    margin:10px 0;
+}
+
+.intro-text{
+    font-size:22px;
+}
+
+/* HERO */
+
+.hero{
+    padding-top:40px;
+    padding-bottom:65px;
 }
 
 .hero-name{
     font-family:'Playfair Display',serif;
-    font-size:58px;
+    font-size:62px;
     letter-spacing:4px;
-    color:#50382a;
-    margin-bottom:10px;
+    color:#4b3427;
 }
 
 .hero-subtitle{
     font-size:26px;
-    color:#795d47;
-    margin-bottom:25px;
+    margin-top:5px;
+    color:#795b45;
+}
+
+.divider{
+    width:90px;
+    height:1px;
+    background:#b99e82;
+    margin:25px auto;
 }
 
 .invitation{
-    max-width:580px;
+    max-width:600px;
     margin:auto;
     font-size:22px;
-    color:#5b4636;
 }
+
+/* FAMILY */
 
 .family-role{
     font-size:21px;
-    color:#80644c;
-    margin-bottom:6px;
+    color:#87684f;
 }
 
 .family-name{
     font-family:'Playfair Display',serif;
     font-size:32px;
-    color:#4b3528;
-    margin-bottom:22px;
+    margin:7px 0 20px;
+    color:#4d3528;
 }
 
-.photo{
-    width:100%;
-    max-width:600px;
-    max-height:650px;
-    object-fit:cover;
+/* DATE */
+
+.date-box{
+    max-width:400px;
+    margin:25px auto;
+    padding:30px 20px;
+    background:#eee5d9;
     border-radius:25px;
-    box-shadow:0 12px 35px rgba(70,45,25,.17);
-}
-
-.family-photo{
-    max-height:620px;
-}
-
-.divider{
-    width:100px;
-    height:1px;
-    background:#b89d82;
-    margin:0 auto;
-}
-
-.date-card{
-    max-width:390px;
-    margin:25px auto 30px;
-    padding:28px 20px;
-    background:#eee5d8;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(70,45,25,.10);
+    box-shadow:0 10px 30px rgba(65,45,30,.10);
 }
 
 .date-number{
     font-family:'Playfair Display',serif;
     font-size:80px;
     line-height:1;
-    color:#583e2e;
 }
 
-.date-number span{
-    display:block;
-    font-family:'Cormorant Garamond',serif;
+.month{
     font-size:20px;
     letter-spacing:5px;
     margin-top:8px;
 }
 
 .heart{
-    font-size:25px;
-    color:#8a5f4a;
-    margin:12px 0;
+    font-size:27px;
+    margin:10px;
 }
 
 .time{
     font-size:24px;
 }
 
-.address{
-    font-size:23px;
-    margin:15px 0 25px;
-}
+/* MUSIC */
 
-.map{
-    width:100%;
-    height:320px;
-    border:0;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(70,45,25,.15);
-}
-
-.music-section{
-    background:#eee5d8;
-    padding:55px 20px;
-    text-align:center;
+.music{
+    background:#eee5d9;
 }
 
 .music-title{
@@ -194,11 +192,11 @@ body{
 .music-player{
     width:100%;
     max-width:620px;
-    margin:auto;
     aspect-ratio:16/9;
-    overflow:hidden;
+    margin:auto;
     border-radius:22px;
-    box-shadow:0 12px 35px rgba(70,45,25,.18);
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(65,45,30,.18);
 }
 
 .music-player iframe{
@@ -209,84 +207,92 @@ body{
 
 .music-note{
     font-size:18px;
+    color:#80634c;
     margin-top:15px;
-    color:#80644c;
 }
 
-.rsvp{
-    padding:65px 25px;
-    text-align:center;
+/* MAP */
+
+.address{
+    font-size:23px;
+    margin-bottom:25px;
 }
+
+.map{
+    width:100%;
+    height:320px;
+    border:0;
+    border-radius:25px;
+}
+
+/* RSVP */
 
 .rsvp-question{
     font-family:'Playfair Display',serif;
-    font-size:30px;
-    margin-bottom:28px;
+    font-size:29px;
+    max-width:600px;
+    margin:0 auto 25px;
 }
 
 .buttons{
     display:flex;
-    gap:12px;
     justify-content:center;
+    gap:12px;
     flex-wrap:wrap;
 }
 
-.btn{
-    border:0;
-    padding:14px 25px;
-    border-radius:30px;
+button{
     font-family:'Cormorant Garamond',serif;
     font-size:20px;
+    border:0;
+    border-radius:30px;
+    padding:13px 25px;
     cursor:pointer;
-    transition:.3s;
 }
 
-.btn-yes{
+.yes{
     background:#6d5542;
     color:white;
 }
 
-.btn-no{
-    background:#dfd3c3;
+.no{
+    background:#dfd2c1;
     color:#503b2d;
 }
 
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.rsvp-form{
+.form{
     display:none;
     max-width:420px;
     margin:25px auto 0;
 }
 
-.rsvp-form input{
+.form input{
     width:100%;
     padding:15px 18px;
-    border:1px solid #cbb9a5;
-    border-radius:25px;
-    background:#fffaf3;
+    border:1px solid #cbb8a2;
+    border-radius:30px;
+    background:#fffdf9;
     font-family:'Cormorant Garamond',serif;
     font-size:20px;
     outline:none;
     margin-bottom:12px;
 }
 
-.send-btn{
+.send{
     width:100%;
     background:#6d5542;
     color:white;
 }
 
-.message{
+.no-message{
     display:none;
-    margin-top:25px;
-    font-size:21px;
+    margin:25px auto;
+    max-width:500px;
+    font-size:20px;
 }
 
 .guests{
-    margin-top:25px;
+    margin-top:30px;
 }
 
 .guests-title{
@@ -297,22 +303,26 @@ body{
 .guest{
     display:inline-block;
     padding:7px 15px;
-    margin:5px;
-    background:#e7dacb;
+    margin:4px;
     border-radius:20px;
+    background:#e8dbcb;
 }
 
+/* FOOTER */
+
 .footer{
-    padding:35px 20px 50px;
     text-align:center;
-    font-size:19px;
-    color:#80644c;
+    padding:30px 20px 50px;
+    font-size:20px;
+    color:#80634c;
 }
+
+/* MOBILE */
 
 @media(max-width:600px){
 
     .hero-name{
-        font-size:46px;
+        font-size:48px;
     }
 
     .hero-subtitle{
@@ -324,7 +334,7 @@ body{
     }
 
     .main-title{
-        font-size:34px;
+        font-size:33px;
     }
 
     .date-number{
@@ -336,37 +346,44 @@ body{
 </style>
 </head>
 
+
 <body>
 
 <div class="page">
 
-<!-- БАШТАЛГЫ БЕТ -->
-<section class="section intro">
+
+<!-- ================================= -->
+<!-- БАШКЫ БЕТ -->
+<!-- ================================= -->
+
+<section class="intro">
 
     <img
         class="intro-photo"
         src="335BD0E0-60FF-46F9-9FAC-741AF54FE10C.png"
-        alt="Умар"
-    >
+        alt="Умар">
 
-    <div class="small-title">
-        Ак жол каалоо менен
+    <div class="intro-small">
+        АК ЖОЛ КААЛОО МЕНЕН
     </div>
 
-    <h1 class="main-title">
+    <div class="intro-title">
         Тушоо тоюна
-    </h1>
+    </div>
 
-    <div class="invitation">
-        Кичинекей Умарыбыздын<br>
-        тушоо тоюна чакырабыз! ✨
+    <div class="intro-text">
+        чакырабыз! 🤍
     </div>
 
 </section>
 
 
-<!-- БАШКЫ ТЕКСТ -->
-<section class="section">
+
+<!-- ================================= -->
+<!-- УМАРДЫН БАШКЫ ТЕКСТИ -->
+<!-- ================================= -->
+
+<section class="hero">
 
     <div class="decor">✦</div>
 
@@ -380,21 +397,32 @@ body{
 
     <div class="divider"></div>
 
-    <p class="invitation" style="margin-top:25px;">
-        Кичинекей Умарыбыздын тушоо тоюна чакырабыз! ✨
+    <div class="invitation">
+
+        Кичинекей Умарыбыздын тушоо тоюна
+        чакырабыз! ✨
+
         <br><br>
+
         Келип, ак баталарыңызды берип,
         кубанычыбызга орток болуңуздар!
+
         <br><br>
+
         Умардын алгачкы кадамына ак жол тилеп,
         тушоосун кесип, кубанычыбызга орток болуңуздар! ❤️
-    </p>
+
+    </div>
 
 </section>
 
 
+
+<!-- ================================= -->
 <!-- 1. ТАЙ-ТАЙ -->
-<section class="section">
+<!-- ================================= -->
+
+<section>
 
     <div class="decor">✦</div>
 
@@ -405,14 +433,17 @@ body{
     <img
         class="photo"
         src="6C9FA9FD-E059-448F-A39F-A44DCD7ADD8F.png"
-        alt="Тай-тай"
-    >
+        alt="Тай-тай">
 
 </section>
 
 
-<!-- 2. ТОЙ ЭЭЛЕРИ -->
-<section class="section">
+
+<!-- ================================= -->
+<!-- 2. ЧОҢ АТА, ЧОҢ АПА -->
+<!-- ================================= -->
+
+<section>
 
     <div class="decor">❈</div>
 
@@ -420,21 +451,24 @@ body{
         Чоң атасы, чоң апасы
     </div>
 
-    <h2 class="family-name">
+    <div class="family-name">
         Манас, Динара
-    </h2>
+    </div>
 
     <img
-        class="photo family-photo"
+        class="photo"
         src="629e45fa-52cb-4aea-b89e-983a27248e54.jpeg"
-        alt="Манас, Динара"
-    >
+        alt="Манас, Динара">
 
 </section>
 
 
+
+<!-- ================================= -->
 <!-- 3. АТА-ЭНЕСИ -->
-<section class="section">
+<!-- ================================= -->
+
+<section>
 
     <div class="decor">✦</div>
 
@@ -442,21 +476,24 @@ body{
         Ата-энеси
     </div>
 
-    <h2 class="family-name">
+    <div class="family-name">
         Максат, Каныкей
-    </h2>
+    </div>
 
     <img
-        class="photo family-photo"
+        class="photo"
         src="F72AD17D-2BEA-4B7A-9BDE-8840785C5762.png"
-        alt="Максат, Каныкей"
-    >
+        alt="Максат, Каныкей">
 
 </section>
 
 
-<!-- 4. КҮНҮ КАЛДЫ + УМАР -->
-<section class="section">
+
+<!-- ================================= -->
+<!-- 4. КҮНҮ КАЛДЫ -->
+<!-- ================================= -->
+
+<section>
 
     <div class="decor">♡</div>
 
@@ -464,11 +501,14 @@ body{
         Күнү калды
     </h2>
 
-    <div class="date-card">
+    <div class="date-box">
 
         <div class="date-number">
             31
-            <span>ОКТЯБРЬ</span>
+        </div>
+
+        <div class="month">
+            ОКТЯБРЬ
         </div>
 
         <div class="heart">
@@ -481,17 +521,23 @@ body{
 
     </div>
 
+
+    <!-- УМАРДЫН ОТУРГАН СҮРӨТҮ -->
+
     <img
         class="photo"
         src="335BD0E0-60FF-46F9-9FAC-741AF54FE10C.png"
-        alt="Умар"
-    >
+        alt="Умар">
 
 </section>
 
 
+
+<!-- ================================= -->
 <!-- МУЗЫКА -->
-<section class="music-section">
+<!-- ================================= -->
+
+<section class="music">
 
     <div class="decor">
         ♪ ♫ ♪
@@ -505,7 +551,7 @@ body{
 
         <iframe
             src="https://www.youtube.com/embed/1_r-p5-hG5U"
-            title="Умардын тушоо тоюна музыка"
+            title="Умардын тушоо тою"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
@@ -519,8 +565,12 @@ body{
 </section>
 
 
+
+<!-- ================================= -->
 <!-- ДАРЕК -->
-<section class="section">
+<!-- ================================= -->
+
+<section>
 
     <div class="decor">❈</div>
 
@@ -529,10 +579,17 @@ body{
     </h2>
 
     <div class="address">
-        <strong>«Ак-Тилек» рестораны</strong>
+
+        <strong>
+            «Ак-Тилек» рестораны
+        </strong>
+
         <br>
+
         Кишиневская көчөсү, 4
+
     </div>
+
 
     <iframe
         class="map"
@@ -543,59 +600,80 @@ body{
 </section>
 
 
-<!-- RSVP -->
-<section class="rsvp">
 
-    <div class="decor">♡</div>
+<!-- ================================= -->
+<!-- RSVP -->
+<!-- ================================= -->
+
+<section>
+
+    <div class="decor">
+        ♡
+    </div>
 
     <div class="rsvp-question">
+
         «Умардын тушоо тоюна
         биз менен бирге болосузбу? 🤍»
+
     </div>
+
 
     <div class="buttons">
 
         <button
-            class="btn btn-yes"
+            class="yes"
             onclick="showYes()">
+
             🤍 Ооба, келем
+
         </button>
 
+
         <button
-            class="btn btn-no"
+            class="no"
             onclick="showNo()">
+
             🤎 Жок, келе албайм
+
         </button>
 
     </div>
 
 
+
     <!-- ООБА -->
+
     <div
         id="yesForm"
-        class="rsvp-form">
+        class="form">
 
         <input
             id="guestName"
             type="text"
-            placeholder="Атыңызды жазыңыз"
-        >
+            placeholder="Атыңызды жазыңыз">
 
         <button
-            class="btn send-btn"
+            class="send"
             onclick="sendAnswer()">
+
             Жооп жөнөтүү 🤍
+
         </button>
 
     </div>
 
 
+
     <!-- ЖОК -->
+
     <div
         id="noMessage"
-        class="message">
+        class="no-message">
 
-        <strong>Жооп бергениңиз үчүн рахмат 🤍</strong>
+        <strong>
+            Жооп бергениңиз үчүн рахмат 🤍
+        </strong>
 
         <br><br>
 
@@ -605,7 +683,9 @@ body{
     </div>
 
 
+
     <!-- КАТЫШУУЧУЛАР -->
+
     <div class="guests">
 
         <div class="guests-title">
@@ -619,7 +699,11 @@ body{
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- ================================= -->
+<!-- АЯГЫ -->
+<!-- ================================= -->
+
 <div class="footer">
 
     Умардын алгачкы кадамы
@@ -631,12 +715,15 @@ body{
 
 </div>
 
+
 </div>
+
 
 
 <script>
 
-/* ООБА ДЕГЕНДЕ */
+/* ООБА */
+
 function showYes(){
 
     document.getElementById("yesForm").style.display = "block";
@@ -646,7 +733,8 @@ function showYes(){
 }
 
 
-/* ЖОК ДЕГЕНДЕ */
+/* ЖОК */
+
 function showNo(){
 
     document.getElementById("yesForm").style.display = "none";
@@ -656,12 +744,16 @@ function showNo(){
 }
 
 
-/* АТЫН ЖӨНӨТҮҮ */
+/* ЖООП ЖӨНӨТҮҮ */
+
 function sendAnswer(){
 
-    const input = document.getElementById("guestName");
+    const input =
+        document.getElementById("guestName");
 
-    const name = input.value.trim();
+    const name =
+        input.value.trim();
+
 
     if(!name){
 
@@ -693,19 +785,19 @@ function sendAnswer(){
 
 
     alert(
-        "Рахмат, " +
-        name +
-        "! 🤍"
+        "Рахмат, " + name + "! 🤍"
     );
 
 }
 
 
-/* КАТЫШУУЧУЛАРДЫ КӨРСӨТҮҮ */
+/* КАТЫШУУЧУЛАР */
+
 function showGuests(){
 
     const list =
         document.getElementById("guestList");
+
 
     let guests =
         JSON.parse(
@@ -718,25 +810,24 @@ function showGuests(){
 
     guests.forEach(function(name){
 
-        const item =
+        const guest =
             document.createElement("span");
 
-        item.className = "guest";
+        guest.className = "guest";
 
-        item.textContent =
-            name;
+        guest.textContent = name;
 
-        list.appendChild(item);
+        list.appendChild(guest);
 
     });
 
 }
 
 
-/* БАР БОЛГОН АТТАРДЫ АЧКАНДА КӨРСӨТ */
 showGuests();
 
 </script>
+
 
 </body>
 </html>
