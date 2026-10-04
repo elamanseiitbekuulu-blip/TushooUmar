@@ -6,1035 +6,703 @@
 
 <title>Умардын тушоо тою</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 *{
     box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+    margin:0;
+    padding:0;
 }
 
 body{
-    margin:0;
-    background:#f7f1e8;
-    color:#4b382c;
+    background:#eee7dc;
+    color:#4b392d;
     font-family:'Cormorant Garamond',serif;
+    line-height:1.5;
 }
 
-button,input{
-    font-family:inherit;
-}
-
-/* =========================
-   ТУШОО КЕСҮҮ БАШТАЛГЫЧ
-========================= */
-
-#intro{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    background:#f4ede2;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:opacity 1s ease, visibility 1s ease;
-}
-
-#intro.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.intro-box{
-    width:100%;
-    max-width:520px;
-    height:100%;
-    position:relative;
+.page{
+    max-width:720px;
+    margin:auto;
+    background:#f8f4ec;
+    min-height:100vh;
     overflow:hidden;
-    background:#e9dfd1;
-}
-
-.intro-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-}
-
-.intro-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        to bottom,
-        rgba(30,20,10,.05),
-        rgba(30,20,10,.15)
-    );
-}
-
-.intro-text{
-    position:absolute;
-    top:8%;
-    left:0;
-    right:0;
-    text-align:center;
-    color:white;
-    text-shadow:0 2px 10px rgba(0,0,0,.35);
-}
-
-.intro-text h1{
-    margin:0;
-    font-family:'Playfair Display',serif;
-    font-size:35px;
-    letter-spacing:2px;
-}
-
-.intro-text p{
-    font-size:20px;
-    margin:8px 20px;
-}
-
-/* ЖИП */
-.rope{
-    position:absolute;
-    left:7%;
-    right:7%;
-    top:67%;
-    height:14px;
-    z-index:5;
-    transition:.8s ease;
-}
-
-.rope::before,
-.rope::after{
-    content:"";
-    position:absolute;
-    top:0;
-    width:50%;
-    height:11px;
-    background:
-        repeating-linear-gradient(
-            -45deg,
-            #8b5e3c 0px,
-            #8b5e3c 5px,
-            #d1a375 5px,
-            #d1a375 9px
-        );
-    border-radius:10px;
-}
-
-.rope::before{
-    left:0;
-}
-
-.rope::after{
-    right:0;
-}
-
-.rope.cut::before{
-    transform:rotate(-12deg) translate(-35px,12px);
-}
-
-.rope.cut::after{
-    transform:rotate(12deg) translate(35px,12px);
-}
-
-.cut-button{
-    position:absolute;
-    bottom:8%;
-    left:50%;
-    transform:translateX(-50%);
-    border:1px solid rgba(255,255,255,.7);
-    background:rgba(255,255,255,.88);
-    color:#654735;
-    padding:14px 30px;
-    border-radius:40px;
-    font-size:19px;
-    cursor:pointer;
-    box-shadow:0 5px 25px rgba(0,0,0,.18);
-    z-index:10;
-}
-
-.cut-button:active{
-    transform:translateX(-50%) scale(.96);
-}
-
-/* =========================
-   НЕГИЗГИ САЙТ
-========================= */
-
-#main{
-    display:none;
-    animation:pageIn 1.2s ease;
-}
-
-#main.show{
-    display:block;
-}
-
-@keyframes pageIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 .section{
-    max-width:650px;
-    margin:auto;
-    padding:70px 22px;
+    padding:65px 25px;
     text-align:center;
+    position:relative;
 }
 
 .decor{
-    color:#a88461;
     font-size:25px;
-    letter-spacing:7px;
+    color:#8b6b50;
     margin-bottom:15px;
 }
 
-/* БАШКЫ ТЕКСТ */
-
-.hero{
-    padding-top:85px;
-    padding-bottom:55px;
+.intro{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
 }
 
-.main-name{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(42px,13vw,75px);
-    letter-spacing:4px;
-    color:#6c4934;
-    margin:0;
-    line-height:1;
-    font-weight:600;
+.intro-photo{
+    width:210px;
+    height:280px;
+    object-fit:cover;
+    border-radius:120px 120px 25px 25px;
+    box-shadow:0 15px 40px rgba(70,45,25,.18);
+    margin-bottom:30px;
+}
+
+.small-title{
+    font-size:19px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#80644c;
 }
 
 .main-title{
-    font-size:clamp(28px,8vw,43px);
-    margin:12px 0 25px;
-    color:#654836;
-    font-weight:500;
-}
-
-.hero-text{
-    font-size:22px;
-    line-height:1.45;
-    margin:12px auto;
-    max-width:570px;
-}
-
-.highlight{
-    font-size:25px;
-    font-weight:600;
-    color:#76523b;
-}
-
-/* СҮРӨТ */
-
-.photo{
-    width:100%;
-    display:block;
-    border-radius:22px;
-    margin:25px auto 0;
-    box-shadow:0 12px 35px rgba(74,48,31,.16);
-}
-
-/* ДАТА */
-
-.date-card{
-    margin-top:30px;
-    padding:28px 20px;
-    border:1px solid #cbb49a;
-    border-radius:25px;
-    background:rgba(255,255,255,.45);
-}
-
-.date-number{
     font-family:'Playfair Display',serif;
-    font-size:55px;
-    color:#79553d;
-    line-height:1;
+    font-size:42px;
+    color:#4a3528;
+    margin:10px 0 18px;
 }
 
-.date-number span{
-    display:block;
-    font-size:23px;
+.hero-name{
+    font-family:'Playfair Display',serif;
+    font-size:58px;
     letter-spacing:4px;
-    margin-top:8px;
+    color:#50382a;
+    margin-bottom:10px;
 }
 
-.time{
-    font-size:27px;
-    margin-top:18px;
-    font-weight:600;
+.hero-subtitle{
+    font-size:26px;
+    color:#795d47;
+    margin-bottom:25px;
 }
 
-.heart{
-    color:#a75f52;
-    font-size:27px;
+.invitation{
+    max-width:580px;
+    margin:auto;
+    font-size:22px;
+    color:#5b4636;
 }
 
-/* ҮЙ-БҮЛӨ */
+.family-role{
+    font-size:21px;
+    color:#80644c;
+    margin-bottom:6px;
+}
 
 .family-name{
     font-family:'Playfair Display',serif;
     font-size:32px;
-    color:#704c37;
-    margin:0 0 18px;
+    color:#4b3528;
+    margin-bottom:22px;
 }
 
-.family-role{
-    font-size:22px;
-    margin-bottom:5px;
+.photo{
+    width:100%;
+    max-width:600px;
+    max-height:650px;
+    object-fit:cover;
+    border-radius:25px;
+    box-shadow:0 12px 35px rgba(70,45,25,.17);
 }
 
 .family-photo{
-    margin-top:18px;
+    max-height:620px;
 }
 
-/* АДРЕС */
+.divider{
+    width:100px;
+    height:1px;
+    background:#b89d82;
+    margin:0 auto;
+}
 
-.address-box{
-    background:#eee4d7;
+.date-card{
+    max-width:390px;
+    margin:25px auto 30px;
+    padding:28px 20px;
+    background:#eee5d8;
     border-radius:25px;
-    padding:28px 18px;
-    margin-top:25px;
+    box-shadow:0 10px 30px rgba(70,45,25,.10);
 }
 
-.address-name{
+.date-number{
     font-family:'Playfair Display',serif;
-    font-size:30px;
-    color:#6d4a36;
+    font-size:80px;
+    line-height:1;
+    color:#583e2e;
+}
+
+.date-number span{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    letter-spacing:5px;
+    margin-top:8px;
+}
+
+.heart{
+    font-size:25px;
+    color:#8a5f4a;
+    margin:12px 0;
+}
+
+.time{
+    font-size:24px;
 }
 
 .address{
-    font-size:22px;
-    line-height:1.4;
-    margin:10px 0 20px;
+    font-size:23px;
+    margin:15px 0 25px;
 }
 
 .map{
     width:100%;
-    height:260px;
+    height:320px;
     border:0;
-    border-radius:18px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(70,45,25,.15);
 }
 
-/* RSVP */
+.music-section{
+    background:#eee5d8;
+    padding:55px 20px;
+    text-align:center;
+}
+
+.music-title{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.music-player{
+    width:100%;
+    max-width:620px;
+    margin:auto;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border-radius:22px;
+    box-shadow:0 12px 35px rgba(70,45,25,.18);
+}
+
+.music-player iframe{
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+.music-note{
+    font-size:18px;
+    margin-top:15px;
+    color:#80644c;
+}
 
 .rsvp{
-    background:#eee3d5;
-    max-width:none;
-    padding-left:22px;
-    padding-right:22px;
+    padding:65px 25px;
+    text-align:center;
 }
 
-.rsvp-inner{
-    max-width:600px;
-    margin:auto;
-}
-
-.question{
+.rsvp-question{
     font-family:'Playfair Display',serif;
-    font-size:29px;
-    line-height:1.3;
-    color:#684936;
+    font-size:30px;
+    margin-bottom:28px;
 }
 
 .buttons{
     display:flex;
-    flex-direction:column;
-    gap:13px;
-    margin-top:25px;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
 }
 
-.rsvp-btn{
+.btn{
     border:0;
-    padding:16px 22px;
-    border-radius:40px;
+    padding:14px 25px;
+    border-radius:30px;
+    font-family:'Cormorant Garamond',serif;
     font-size:20px;
     cursor:pointer;
-    transition:.25s;
+    transition:.3s;
 }
 
-.yes{
-    background:#fff;
-    color:#654735;
-}
-
-.no{
-    background:#6c4d3a;
+.btn-yes{
+    background:#6d5542;
     color:white;
 }
 
-.rsvp-btn:hover{
+.btn-no{
+    background:#dfd3c3;
+    color:#503b2d;
+}
+
+.btn:hover{
     transform:translateY(-2px);
 }
 
-/* ФОРМА */
-
-.form-box{
+.rsvp-form{
     display:none;
-    margin-top:25px;
-    animation:fadeUp .5s ease;
+    max-width:420px;
+    margin:25px auto 0;
 }
 
-.form-box.show{
-    display:block;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.form-box label{
-    display:block;
-    font-size:20px;
-    margin-bottom:8px;
-}
-
-.name-input{
+.rsvp-form input{
     width:100%;
     padding:15px 18px;
-    border-radius:30px;
-    border:1px solid #c5ad96;
-    background:white;
+    border:1px solid #cbb9a5;
+    border-radius:25px;
+    background:#fffaf3;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
     outline:none;
-    font-size:19px;
-    text-align:center;
+    margin-bottom:12px;
 }
 
-.submit{
-    margin-top:13px;
-    border:0;
-    background:#72513d;
+.send-btn{
+    width:100%;
+    background:#6d5542;
     color:white;
-    padding:14px 27px;
-    border-radius:30px;
-    font-size:19px;
-    cursor:pointer;
 }
 
-/* КАТЫШУУЧУЛАР */
-
-.participants{
-    margin-top:30px;
-    text-align:left;
-}
-
-.participants h3{
-    text-align:center;
-    font-size:25px;
-    font-weight:600;
-}
-
-.participant{
-    background:rgba(255,255,255,.7);
-    padding:10px 16px;
-    border-radius:20px;
-    margin:8px 0;
-    font-size:19px;
-}
-
-/* ЖОК */
-
-.no-answer{
+.message{
     display:none;
     margin-top:25px;
     font-size:21px;
-    line-height:1.5;
-    animation:fadeUp .5s ease;
 }
 
-.no-answer.show{
-    display:block;
+.guests{
+    margin-top:25px;
 }
 
-/* МУЗЫКА */
-
-#music-player{
-    position:fixed;
-    bottom:18px;
-    right:18px;
-    z-index:9999;
+.guests-title{
+    font-size:21px;
+    margin-bottom:10px;
 }
 
-#musicBtn{
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    border:none;
-    background:rgba(255,255,255,.94);
-    box-shadow:0 4px 18px rgba(0,0,0,.2);
-    font-size:22px;
-    cursor:pointer;
+.guest{
+    display:inline-block;
+    padding:7px 15px;
+    margin:5px;
+    background:#e7dacb;
+    border-radius:20px;
 }
-
-#youtubeMusic{
-    position:fixed;
-    width:1px;
-    height:1px;
-    opacity:.01;
-    pointer-events:none;
-    bottom:0;
-    left:0;
-}
-
-/* FOOTER */
 
 .footer{
-    padding:45px 20px 80px;
+    padding:35px 20px 50px;
     text-align:center;
-    font-size:18px;
-    color:#8a705d;
+    font-size:19px;
+    color:#80644c;
 }
 
-@media(max-width:480px){
+@media(max-width:600px){
 
-    .intro-text h1{
-        font-size:29px;
+    .hero-name{
+        font-size:46px;
     }
 
-    .intro-text p{
-        font-size:18px;
+    .hero-subtitle{
+        font-size:23px;
     }
 
-    .hero-text{
+    .invitation{
         font-size:20px;
     }
 
-    .section{
-        padding-top:55px;
-        padding-bottom:55px;
+    .main-title{
+        font-size:34px;
     }
 
-    .map{
-        height:230px;
+    .date-number{
+        font-size:70px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     БАШТАЛГЫЧ СҮРӨТ
-========================= -->
+<div class="page">
 
-<div id="intro">
+<!-- БАШТАЛГЫ БЕТ -->
+<section class="section intro">
 
-    <div class="intro-box">
+    <img
+        class="intro-photo"
+        src="335BD0E0-60FF-46F9-9FAC-741AF54FE10C.png"
+        alt="Умар"
+    >
 
-        <img
-            class="intro-image"
-            src="335BD0E0-60FF-46F9-9FAC-741AF54FE10C.png"
-            alt="Умардын тушоо тою"
-        >
+    <div class="small-title">
+        Ак жол каалоо менен
+    </div>
 
-        <div class="intro-overlay"></div>
+    <h1 class="main-title">
+        Тушоо тоюна
+    </h1>
 
-        <div class="intro-text">
-            <h1>Умардын тушоо тою</h1>
-            <p>Ак жол, Умар! 🤍</p>
+    <div class="invitation">
+        Кичинекей Умарыбыздын<br>
+        тушоо тоюна чакырабыз! ✨
+    </div>
+
+</section>
+
+
+<!-- БАШКЫ ТЕКСТ -->
+<section class="section">
+
+    <div class="decor">✦</div>
+
+    <div class="hero-name">
+        УМАРДЫН
+    </div>
+
+    <div class="hero-subtitle">
+        тушоо тоюна чакырабыз! ✨
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="invitation" style="margin-top:25px;">
+        Кичинекей Умарыбыздын тушоо тоюна чакырабыз! ✨
+        <br><br>
+        Келип, ак баталарыңызды берип,
+        кубанычыбызга орток болуңуздар!
+        <br><br>
+        Умардын алгачкы кадамына ак жол тилеп,
+        тушоосун кесип, кубанычыбызга орток болуңуздар! ❤️
+    </p>
+
+</section>
+
+
+<!-- 1. ТАЙ-ТАЙ -->
+<section class="section">
+
+    <div class="decor">✦</div>
+
+    <div class="family-role">
+        Тай-тай
+    </div>
+
+    <img
+        class="photo"
+        src="6C9FA9FD-E059-448F-A39F-A44DCD7ADD8F.png"
+        alt="Тай-тай"
+    >
+
+</section>
+
+
+<!-- 2. ТОЙ ЭЭЛЕРИ -->
+<section class="section">
+
+    <div class="decor">❈</div>
+
+    <div class="family-role">
+        Чоң атасы, чоң апасы
+    </div>
+
+    <h2 class="family-name">
+        Манас, Динара
+    </h2>
+
+    <img
+        class="photo family-photo"
+        src="629e45fa-52cb-4aea-b89e-983a27248e54.jpeg"
+        alt="Манас, Динара"
+    >
+
+</section>
+
+
+<!-- 3. АТА-ЭНЕСИ -->
+<section class="section">
+
+    <div class="decor">✦</div>
+
+    <div class="family-role">
+        Ата-энеси
+    </div>
+
+    <h2 class="family-name">
+        Максат, Каныкей
+    </h2>
+
+    <img
+        class="photo family-photo"
+        src="F72AD17D-2BEA-4B7A-9BDE-8840785C5762.png"
+        alt="Максат, Каныкей"
+    >
+
+</section>
+
+
+<!-- 4. КҮНҮ КАЛДЫ + УМАР -->
+<section class="section">
+
+    <div class="decor">♡</div>
+
+    <h2 class="main-title">
+        Күнү калды
+    </h2>
+
+    <div class="date-card">
+
+        <div class="date-number">
+            31
+            <span>ОКТЯБРЬ</span>
         </div>
 
-        <div class="rope" id="rope"></div>
+        <div class="heart">
+            ♥
+        </div>
 
-        <button class="cut-button" onclick="cutRope()">
-            ✂️ Тушоону кесүү
+        <div class="time">
+            31.10.26 · саат 15:00
+        </div>
+
+    </div>
+
+    <img
+        class="photo"
+        src="335BD0E0-60FF-46F9-9FAC-741AF54FE10C.png"
+        alt="Умар"
+    >
+
+</section>
+
+
+<!-- МУЗЫКА -->
+<section class="music-section">
+
+    <div class="decor">
+        ♪ ♫ ♪
+    </div>
+
+    <div class="music-title">
+        Биздин музыкабыз 🤍
+    </div>
+
+    <div class="music-player">
+
+        <iframe
+            src="https://www.youtube.com/embed/1_r-p5-hG5U"
+            title="Умардын тушоо тоюна музыка"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+    <div class="music-note">
+        ▶️ Музыканы басып угуп коюңуз 🤍
+    </div>
+
+</section>
+
+
+<!-- ДАРЕК -->
+<section class="section">
+
+    <div class="decor">❈</div>
+
+    <h2 class="main-title">
+        Дарегибиз
+    </h2>
+
+    <div class="address">
+        <strong>«Ак-Тилек» рестораны</strong>
+        <br>
+        Кишиневская көчөсү, 4
+    </div>
+
+    <iframe
+        class="map"
+        src="https://www.google.com/maps?q=Кишиневская%20улица%204,%20Бишкек&output=embed"
+        loading="lazy">
+    </iframe>
+
+</section>
+
+
+<!-- RSVP -->
+<section class="rsvp">
+
+    <div class="decor">♡</div>
+
+    <div class="rsvp-question">
+        «Умардын тушоо тоюна
+        биз менен бирге болосузбу? 🤍»
+    </div>
+
+    <div class="buttons">
+
+        <button
+            class="btn btn-yes"
+            onclick="showYes()">
+            🤍 Ооба, келем
+        </button>
+
+        <button
+            class="btn btn-no"
+            onclick="showNo()">
+            🤎 Жок, келе албайм
         </button>
 
     </div>
 
-</div>
 
+    <!-- ООБА -->
+    <div
+        id="yesForm"
+        class="rsvp-form">
 
-<!-- =========================
-     НЕГИЗГИ САЙТ
-========================= -->
-
-<main id="main">
-
-    <!-- БАШКЫ БӨЛҮК -->
-
-    <section class="section hero">
-
-        <div class="decor">✦ ❈ ✦</div>
-
-        <h1 class="main-name">УМАРДЫН</h1>
-
-        <h2 class="main-title">
-            тушоо тоюна чакырабыз! ✨
-        </h2>
-
-        <p class="hero-text">
-            Кичинекей Умарыбыздын тушоо тоюна чакырабыз!
-        </p>
-
-        <p class="hero-text">
-            Келип, ак баталарыңызды берип,
-            кубанычыбызга орток болуңуздар!
-        </p>
-
-        <p class="hero-text highlight">
-            Умардын алгачкы кадамына ак жол тилеп,
-            тушоосун кесип, кубанычыбызга орток болуңуздар! ❤️
-        </p>
-
-        <img
-            class="photo"
-            src="335BD0E0-60FF-46F9-9FAC-741AF54FE10C.png"
-            alt="Умар"
+        <input
+            id="guestName"
+            type="text"
+            placeholder="Атыңызды жазыңыз"
         >
 
-    </section>
+        <button
+            class="btn send-btn"
+            onclick="sendAnswer()">
+            Жооп жөнөтүү 🤍
+        </button>
 
-
-    <!-- ДАТА -->
-
-    <section class="section">
-
-        <div class="decor">❈</div>
-
-        <h2 class="main-title">Күнү жана убактысы</h2>
-
-        <div class="date-card">
-
-            <div class="date-number">
-                31
-                <span>ОКТЯБРЬ</span>
-            </div>
-
-            <div class="heart">
-                ♥
-            </div>
-
-            <div class="time">
-                31.10.26 · саат 15:00
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ЧОҢ АТА, ЧОҢ АПА -->
-
-    <section class="section">
-
-        <div class="decor">✦</div>
-
-        <div class="family-role">
-            Чоң атасы, чоң апасы
-        </div>
-
-        <!-- БИРИНЧИ АТЫ -->
-
-        <h2 class="family-name">
-            Манас, Динара
-        </h2>
-
-        <!-- АНАН СҮРӨТҮ -->
-
-        <img
-            class="photo family-photo"
-            src="629e45fa-52cb-4aea-b89e-983a27248e54.jpeg"
-            alt="Манас жана Динара"
-        >
-
-    </section>
-
-
-    <!-- АТА-ЭНЕСИ -->
-
-    <section class="section">
-
-        <div class="decor">❈</div>
-
-        <div class="family-role">
-            Ата-энеси
-        </div>
-
-        <!-- БИРИНЧИ АТЫ -->
-
-        <h2 class="family-name">
-            Максат, Каныкей
-        </h2>
-
-        <!-- АНАН СҮРӨТҮ -->
-
-        <img
-            class="photo family-photo"
-            src="6C9FA9FD-E059-448F-A39F-A44DCD7ADD8F.png"
-            alt="Максат жана Каныкей"
-        >
-
-    </section>
-
-
-    <!-- КОШУМЧА СҮРӨТ -->
-
-    <section class="section">
-
-        <img
-            class="photo"
-            src="F72AD17D-2BEA-4B7A-9BDE-8840785C5762.png"
-            alt="Умар"
-        >
-
-    </section>
-
-
-    <!-- ДАРЕК -->
-
-    <section class="section">
-
-        <div class="decor">✦ ❈ ✦</div>
-
-        <h2 class="main-title">
-            Дарегибиз
-        </h2>
-
-        <div class="address-box">
-
-            <div class="address-name">
-                «Ак-Тилек» рестораны
-            </div>
-
-            <div class="address">
-                Кишиневская көчөсү, 4
-            </div>
-
-            <iframe
-                class="map"
-                src="https://www.google.com/maps?q=Кишиневская%20улица%204,%20Бишкек&output=embed"
-                loading="lazy">
-            </iframe>
-
-        </div>
-
-    </section>
-
-
-    <!-- RSVP -->
-
-    <section class="rsvp">
-
-        <div class="section rsvp-inner">
-
-            <div class="decor">♡</div>
-
-            <div class="question">
-                «Умардын тушоо тоюна
-                биз менен бирге болосузбу? 🤍»
-            </div>
-
-            <div class="buttons">
-
-                <button
-                    class="rsvp-btn yes"
-                    onclick="showYes()">
-                    🤍 Ооба, келем
-                </button>
-
-                <button
-                    class="rsvp-btn no"
-                    onclick="showNo()">
-                    🤎 Жок, келе албайм
-                </button>
-
-            </div>
-
-
-            <!-- ООБА -->
-
-            <div class="form-box" id="yesForm">
-
-                <label>
-                    Атыңызды жазыңыз:
-                </label>
-
-                <input
-                    id="guestName"
-                    class="name-input"
-                    type="text"
-                    placeholder="Атыңыз"
-                >
-
-                <br>
-
-                <button
-                    class="submit"
-                    onclick="addGuest()">
-                    Жооп жөнөтүү 🤍
-                </button>
-
-            </div>
-
-
-            <!-- ЖОК -->
-
-            <div
-                class="no-answer"
-                id="noAnswer">
-
-                Жооп бергениңиз үчүн рахмат 🤍<br><br>
-
-                Умардын тушоо тоюнан алыста болсоңуз да,
-                жакшы тилегиңиз биз үчүн кымбат.
-
-            </div>
-
-
-            <!-- КАТЫШУУЧУЛАР -->
-
-            <div
-                class="participants"
-                id="participants">
-
-                <h3>
-                    Биз менен бирге болгондор 🤍
-                </h3>
-
-                <div id="guestList"></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <div class="footer">
-        Умардын алгачкы кадамы ак жол болсун! 🤍
-        <br>
-        31.10.26
     </div>
 
-</main>
+
+    <!-- ЖОК -->
+    <div
+        id="noMessage"
+        class="message">
+
+        <strong>Жооп бергениңиз үчүн рахмат 🤍</strong>
+
+        <br><br>
+
+        Умардын тушоо тоюнан алыста болсоңуз да,
+        жакшы тилегиңиз биз үчүн кымбат.
+
+    </div>
 
 
-<!-- =========================
-     МУЗЫКА
-========================= -->
+    <!-- КАТЫШУУЧУЛАР -->
+    <div class="guests">
 
-<div id="music-player">
+        <div class="guests-title">
+            Биз менен бирге боло тургандар 🤍
+        </div>
 
-    <button
-        onclick="toggleMusic()"
-        id="musicBtn">
-        🔇
-    </button>
+        <div id="guestList"></div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<div class="footer">
+
+    Умардын алгачкы кадамы
+    ак жолдуу болсун! 🤍
+
+    <br><br>
+
+    Ак жол, Умар! ✨
 
 </div>
 
-<iframe
-    id="youtubeMusic"
-    src=""
-    frameborder="0"
-    allow="autoplay; encrypted-media">
-</iframe>
+</div>
 
 
 <script>
 
-/* =========================
-   ТУШОО КЕСҮҮ
-========================= */
-
-let musicStarted = false;
-let musicOn = false;
-
-function cutRope(){
-
-    const rope = document.getElementById("rope");
-    const intro = document.getElementById("intro");
-    const main = document.getElementById("main");
-
-    rope.classList.add("cut");
-
-    /*
-      Колдонуучу баскандыктан,
-      музыка баштоого аракет кылабыз.
-    */
-    startMusic();
-
-    setTimeout(function(){
-
-        intro.classList.add("hide");
-        main.classList.add("show");
-
-        window.scrollTo({
-            top:0,
-            behavior:"instant"
-        });
-
-    },900);
-}
-
-
-/* =========================
-   МУЗЫКА
-========================= */
-
-const videoID = "1_r-p5-hG5U";
-
-function startMusic(){
-
-    if(musicStarted) return;
-
-    const iframe = document.getElementById("youtubeMusic");
-
-    iframe.src =
-        "https://www.youtube-nocookie.com/embed/"
-        + videoID
-        + "?autoplay=1"
-        + "&loop=1"
-        + "&playlist=" + videoID
-        + "&controls=0"
-        + "&playsinline=1";
-
-    musicStarted = true;
-    musicOn = true;
-
-    document.getElementById("musicBtn").innerHTML="🔊";
-}
-
-
-function toggleMusic(){
-
-    const iframe = document.getElementById("youtubeMusic");
-    const btn = document.getElementById("musicBtn");
-
-    if(!musicStarted){
-
-        startMusic();
-        return;
-
-    }
-
-    if(musicOn){
-
-        iframe.src =
-            "https://www.youtube-nocookie.com/embed/"
-            + videoID
-            + "?autoplay=0"
-            + "&loop=1"
-            + "&playlist=" + videoID
-            + "&controls=0"
-            + "&playsinline=1";
-
-        musicOn=false;
-        btn.innerHTML="🔇";
-
-    }else{
-
-        iframe.src =
-            "https://www.youtube-nocookie.com/embed/"
-            + videoID
-            + "?autoplay=1"
-            + "&loop=1"
-            + "&playlist=" + videoID
-            + "&controls=0"
-            + "&playsinline=1";
-
-        musicOn=true;
-        btn.innerHTML="🔊";
-    }
-}
-
-
-/* =========================
-   RSVP — ООБА
-========================= */
-
+/* ООБА ДЕГЕНДЕ */
 function showYes(){
 
-    document.getElementById("yesForm")
-        .classList.add("show");
+    document.getElementById("yesForm").style.display = "block";
 
-    document.getElementById("noAnswer")
-        .classList.remove("show");
+    document.getElementById("noMessage").style.display = "none";
 
 }
 
 
-/* =========================
-   RSVP — ЖОК
-========================= */
-
+/* ЖОК ДЕГЕНДЕ */
 function showNo(){
 
-    document.getElementById("yesForm")
-        .classList.remove("show");
+    document.getElementById("yesForm").style.display = "none";
 
-    document.getElementById("noAnswer")
-        .classList.add("show");
+    document.getElementById("noMessage").style.display = "block";
 
 }
 
 
-/* =========================
-   КАТЫШУУЧУНУ КОШУУ
-========================= */
+/* АТЫН ЖӨНӨТҮҮ */
+function sendAnswer(){
 
-function addGuest(){
+    const input = document.getElementById("guestName");
 
-    const input =
-        document.getElementById("guestName");
-
-    const name =
-        input.value.trim();
+    const name = input.value.trim();
 
     if(!name){
 
-        alert("Сураныч, атыңызды жазыңыз 🤍");
+        alert("Атыңызды жазыңыз 🤍");
+
         return;
 
     }
+
 
     let guests =
         JSON.parse(
             localStorage.getItem("umarGuests") || "[]"
         );
 
+
     guests.push(name);
+
 
     localStorage.setItem(
         "umarGuests",
         JSON.stringify(guests)
     );
 
-    input.value="";
 
-    renderGuests();
+    input.value = "";
 
-    document.getElementById("yesForm")
-        .classList.remove("show");
+    showGuests();
+
+
+    alert(
+        "Рахмат, " +
+        name +
+        "! 🤍"
+    );
 
 }
 
 
-/* =========================
-   КАТЫШУУЧУЛАРДЫ КӨРСӨТҮҮ
-========================= */
-
-function renderGuests(){
+/* КАТЫШУУЧУЛАРДЫ КӨРСӨТҮҮ */
+function showGuests(){
 
     const list =
         document.getElementById("guestList");
@@ -1044,28 +712,29 @@ function renderGuests(){
             localStorage.getItem("umarGuests") || "[]"
         );
 
-    list.innerHTML="";
 
-    guests.forEach(function(name,index){
+    list.innerHTML = "";
 
-        const div =
-            document.createElement("div");
 
-        div.className="participant";
+    guests.forEach(function(name){
 
-        div.innerHTML =
-            "🤍 " + (index+1) + ". " + name;
+        const item =
+            document.createElement("span");
 
-        list.appendChild(div);
+        item.className = "guest";
+
+        item.textContent =
+            name;
+
+        list.appendChild(item);
 
     });
 
 }
 
 
-/* Барак ачылганда мурдагы жоопторду чыгаруу */
-
-renderGuests();
+/* БАР БОЛГОН АТТАРДЫ АЧКАНДА КӨРСӨТ */
+showGuests();
 
 </script>
 
